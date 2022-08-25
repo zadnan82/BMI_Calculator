@@ -3,6 +3,7 @@ import 'package:bmi_calculator/bmi_list.dart';
 import "package:flutter/material.dart";
 import 'modell.dart';
 import 'dart:math';
+
  
 void main() {
  runApp(MyApp());
@@ -42,7 +43,9 @@ String message = "Please enter your length and weight!";
 String message2 = "";
 String message3 = "";
 
-  String? gender ; 
+String? gender ; 
+
+int listCounter  = 0 ; 
 
 
 void startCalculator(BuildContext context){
@@ -78,6 +81,21 @@ void addToList (double bmi){
   setState(() {
     bmiListan.add(bmi);
   });
+}
+
+void increaseListCounter(){
+ setState(() {
+   listCounter = 1 ;
+  });
+
+
+}
+
+void resetListCounter(){
+ setState(() {
+   listCounter = 0 ;
+  });
+
 }
 
 void calculate (){
@@ -117,7 +135,10 @@ startCalculator(context);
  Widget build(BuildContext context) {
  return  Scaffold(
         backgroundColor: Color.fromARGB(255, 132, 250, 81),
-        body: 
+        body: listCounter == 0
+          ?  
+
+          
         Center(
 
           child: Padding(
@@ -230,7 +251,10 @@ Text(gender == "male" ? "Hello gentleman!" : "Hi lady!"),
                           ),
                         ),
                         
+                      
                       ],
+
+                      
                       
                   ),
                   
@@ -244,6 +268,7 @@ Text(gender == "male" ? "Hello gentleman!" : "Hi lady!"),
                    ),
           
          
+         
               ],
             ),
 
@@ -253,10 +278,56 @@ Text(gender == "male" ? "Hello gentleman!" : "Hi lady!"),
         
           
          
-        ), 
+        ) : 
+         
+         Flex(direction: Axis.vertical,
+         children: <Widget>[
+           Flexible(
+        flex: 1,
+        child:      ListView.builder(
+      itemCount: bmiListan.length,
+      itemBuilder:  (context, index) {
+        return Padding(
+                padding:  EdgeInsets.only(bottom: 60),
+                child: Card(
+                  elevation:  5,
+                  child: Column( 
+                    children: [
+                    Text("${double.parse(bmiListan[index].toStringAsFixed(1))}",
+                           // this.result == null ? 'No Result' : result.toStringAsFixed(2),
+                            style: const TextStyle(fontSize: 50),
+                            textAlign: TextAlign.center,
+                            
+                          ),
+                  ],)
+                   
+                  
+                ),
+                 
+                
+        );
+        
+      } ,
+      
+    ),
+        ),
+
+        ElevatedButton(onPressed: resetListCounter, child: Icon(Icons.arrow_back),),
+         ],
+         ),
+          
+          
+              
+            
+              
+
+           // floatingActionButton: FloatingActionButton(onPressed: resetListCounter, child:  Icon(Icons.arrow_back),) ,
+           
+    
+         
 
 
-         floatingActionButton: FloatingActionButton(onPressed: () => showList(context),),
+         floatingActionButton: FloatingActionButton(onPressed: () => increaseListCounter(), child: Icon(Icons.list),),
 
     
     
