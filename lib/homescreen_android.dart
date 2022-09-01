@@ -139,11 +139,6 @@ class _HomeAndroid extends State<HomeAndroid> {
                 ),
                 onTap: () {
                   resetListCounter();
-                  // Navigator.of(context).push(
-                  //   MaterialPageRoute(
-                  //     builder: (context) => BMIListAndroid(bmiListan),
-                  //   ),
-                  // );
                 },
               ),
             ),
@@ -170,11 +165,6 @@ class _HomeAndroid extends State<HomeAndroid> {
                 ),
                 onTap: () {
                   increaseListCounter();
-                  // Navigator.of(context).push(
-                  //   MaterialPageRoute(
-                  //     builder: (context) => BMIListAndroid(bmiListan),
-                  //   ),
-                  // );
                 },
               ),
             ),
@@ -201,11 +191,6 @@ class _HomeAndroid extends State<HomeAndroid> {
                 ),
                 onTap: () {
                   reset();
-                  // Navigator.of(context).push(
-                  //   MaterialPageRoute(
-                  //     builder: (context) => BMIListAndroid(bmiListan),
-                  //   ),
-                  // );
                 },
               ),
             ),
@@ -222,10 +207,10 @@ class _HomeAndroid extends State<HomeAndroid> {
               child: Column(
                 children: [
                   Container(
-                    height: (MediaQuery.of(context).size.height -
-                            appbar.preferredSize.height -
-                            MediaQuery.of(context).padding.top) *
-                        0.6,
+                    // height: (MediaQuery.of(context).size.height -
+                    //         appbar.preferredSize.height -
+                    //         MediaQuery.of(context).padding.top) *
+                    //     0.6,
                     child: Center(
                         child: Padding(
                       padding: const EdgeInsets.all(1.0),
