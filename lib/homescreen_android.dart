@@ -139,6 +139,7 @@ class _HomeAndroid extends State<HomeAndroid> {
                 ),
                 onTap: () {
                   resetListCounter();
+                  Navigator.pop(context);
                 },
               ),
             ),
@@ -165,6 +166,7 @@ class _HomeAndroid extends State<HomeAndroid> {
                 ),
                 onTap: () {
                   increaseListCounter();
+                  Navigator.pop(context);
                 },
               ),
             ),
@@ -191,6 +193,7 @@ class _HomeAndroid extends State<HomeAndroid> {
                 ),
                 onTap: () {
                   reset();
+                  Navigator.pop(context);
                 },
               ),
             ),
