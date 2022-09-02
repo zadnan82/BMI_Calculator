@@ -5,15 +5,20 @@ import 'modell.dart';
 import 'dart:math';
 import 'dart:io';
 
-class BMIList extends StatelessWidget {
+class BMIList extends StatefulWidget {
   List listan;
   final Function emptyList;
-
   BMIList(this.listan, this.emptyList);
 
-  void deletelisthere() {
-    emptyList();
-    listan = [];
+  @override
+  State<BMIList> createState() => _BMIList();
+}
+
+class _BMIList extends State<BMIList> {
+  void resetit() {
+    setState(() {
+      widget.listan = [];
+    });
   }
 
   @override
@@ -29,7 +34,7 @@ class BMIList extends StatelessWidget {
         trailing: CupertinoButton(
           padding: const EdgeInsets.all(10),
           onPressed: () {
-            deletelisthere();
+            resetit();
           },
           child: const Text("Delete"),
         ),
@@ -41,7 +46,7 @@ class BMIList extends StatelessWidget {
           Flexible(
             flex: 1,
             child: ListView.builder(
-              itemCount: listan.length,
+              itemCount: widget.listan.length,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: EdgeInsets.only(bottom: 60),
@@ -50,7 +55,7 @@ class BMIList extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            "${double.parse(listan[index].toStringAsFixed(1))}",
+                            "${double.parse(widget.listan[index].toStringAsFixed(1))}",
                             // this.result == null ? 'No Result' : result.toStringAsFixed(2),
                             style: const TextStyle(fontSize: 50),
                             textAlign: TextAlign.center,

@@ -51,77 +51,151 @@ class _BMIState extends State<BMI> {
               ),
             ),
             backgroundColor: Colors.amberAccent,
-            body: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Text(
-                        "Your Result Is: ",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 25),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 30.0),
-                      child: SizedBox(
-                        width: 350,
-                        child: Card(
-                          color: Colors.white,
-                          elevation: 15,
-                          child: Padding(
-                            padding: const EdgeInsets.all(20),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(
-                                  "${widget.message3} ",
-                                  style: const TextStyle(fontSize: 30),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Text(
-                                  "${double.parse(widget.bmi.toStringAsFixed(1))}",
-                                  // this.result == null ? 'No Result' : result.toStringAsFixed(2),
-                                  style: const TextStyle(fontSize: 50),
-                                  textAlign: TextAlign.center,
-                                ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                Text("${widget.message2}"),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Material(
-                                    child: CircleAvatar(
-                                      radius: 30,
-                                      backgroundColor:
-                                          Color.fromARGB(255, 34, 138, 250),
-                                      child: IconButton(
-                                        icon: const Icon(
-                                          Icons.arrow_back,
-                                          color: Color.fromARGB(
-                                              255, 253, 253, 253),
+            body: isLandscape
+                ? SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Center(
+                        child: Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.all(10.0),
+                              child: Text(
+                                "Your Result Is: ",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 25),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 30.0),
+                              child: SizedBox(
+                                width: 350,
+                                child: Card(
+                                  color: Colors.white,
+                                  elevation: 15,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(20),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                          "${widget.message3} ",
+                                          style: const TextStyle(fontSize: 30),
+                                          textAlign: TextAlign.center,
                                         ),
-                                        onPressed: skickaTillbaka,
-                                      ),
+                                        Text(
+                                          "${double.parse(widget.bmi.toStringAsFixed(1))}",
+                                          // this.result == null ? 'No Result' : result.toStringAsFixed(2),
+                                          style: const TextStyle(fontSize: 50),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        const SizedBox(
+                                          height: 30,
+                                        ),
+                                        Text("${widget.message2}"),
+                                        const SizedBox(
+                                          height: 20,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Material(
+                                            child: CircleAvatar(
+                                              radius: 30,
+                                              backgroundColor: Color.fromARGB(
+                                                  255, 34, 138, 250),
+                                              child: IconButton(
+                                                icon: const Icon(
+                                                  Icons.arrow_back,
+                                                  color: Color.fromARGB(
+                                                      255, 253, 253, 253),
+                                                ),
+                                                onPressed: skickaTillbaka,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ),
-            ))
+                  )
+                : Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Text(
+                              "Your Result Is: ",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 25),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 30.0),
+                            child: SizedBox(
+                              width: 350,
+                              child: Card(
+                                color: Colors.white,
+                                elevation: 15,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        "${widget.message3} ",
+                                        style: const TextStyle(fontSize: 30),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      Text(
+                                        "${double.parse(widget.bmi.toStringAsFixed(1))}",
+                                        // this.result == null ? 'No Result' : result.toStringAsFixed(2),
+                                        style: const TextStyle(fontSize: 50),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      const SizedBox(
+                                        height: 30,
+                                      ),
+                                      Text("${widget.message2}"),
+                                      const SizedBox(
+                                        height: 20,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(10.0),
+                                        child: Material(
+                                          child: CircleAvatar(
+                                            radius: 30,
+                                            backgroundColor: Color.fromARGB(
+                                                255, 34, 138, 250),
+                                            child: IconButton(
+                                              icon: const Icon(
+                                                Icons.arrow_back,
+                                                color: Color.fromARGB(
+                                                    255, 253, 253, 253),
+                                              ),
+                                              onPressed: skickaTillbaka,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ))
         : isLandscape
             ? CupertinoPageScaffold(
                 backgroundColor: Colors.amberAccent,
